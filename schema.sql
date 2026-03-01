@@ -65,6 +65,22 @@ CREATE TABLE bl_src_m (
 	CONSTRAINT pk_bl_src_m PRIMARY KEY (src_cd)
 ) COMMENT = '출처원장';
 
+CREATE TABLE cm_stg_word_m (
+    stg_word_id VARCHAR(20) NOT NULL COMMENT '표준단어id',
+    stg_word_nm VARCHAR(200) NOT NULL COMMENT '표준단어명',
+    stg_word_eng_nm VARCHAR(200) NULL COMMENT '표준단어영문명',
+    stg_word_eng_abbr_nm VARCHAR(20) NULL COMMENT '표준단어영문약어명',
+    stg_word_dfn TEXT NULL COMMENT '표준단어정의',
+    stg_word_src VARCHAR(100) COMMENT '표준단어출처',
+    use_yn CHAR(1) NOT NULL DEFAULT 'Y' COMMENT '사용여부',
+    reg_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
+	mod_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
+
+    CONSTRAINT pk_cm_stg_word_m PRIMARY KEY (stg_word_id),
+    CONSTRAINT uk_cm_stg_word_nm UNIQUE (stg_word_nm),
+    CONSTRAINT uk_cm_stg_word_eng_abbr_nm UNIQUE (stg_word_eng_abbr_nm)
+) COMMENT = '표준단어원장';
+
 
 CREATE TABLE bl_pstg_m (
 	pstg_id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '게시글ID',
