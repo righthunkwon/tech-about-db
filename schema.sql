@@ -12,7 +12,7 @@
 CREATE TABLE cm_menu_m (
     menu_id VARCHAR(20) NOT NULL COMMENT '메뉴ID',
     menu_nm VARCHAR(100) NOT NULL COMMENT '메뉴명',
-    parent_menu_id VARCHAR(20) NULL COMMENT '상위메뉴ID',
+    parent_menu_id VARCHAR(20) NULL COMMENT '부모메뉴ID',
     menu_url VARCHAR(200) NULL COMMENT '메뉴URL',
     sort_no INT DEFAULT 0 COMMENT '정렬순서',
     menu_lv INT DEFAULT 1 COMMENT '메뉴레벨',
