@@ -50,21 +50,6 @@ CREATE TABLE cm_cd_d (
 		REFERENCES cm_cd_m (cm_cd)
 ) COMMENT = '공통코드상세';
 
-
--- 블로그
-CREATE TABLE bl_src_m (
-	src_cd VARCHAR(20) NOT NULL COMMENT '출처코드',
-	src_nm VARCHAR(100) NOT NULL COMMENT '출처명',
-	src_tp_cd VARCHAR(20) NOT NULL COMMENT '출처유형코드',
-	src_url VARCHAR(500) NULL COMMENT '출처URL',
-	src_logo_url VARCHAR(500) NULL COMMENT '출처로고URL',
-	use_yn CHAR(1) NOT NULL DEFAULT 'Y' COMMENT '사용여부',
-	reg_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
-	mod_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
-
-	CONSTRAINT pk_bl_src_m PRIMARY KEY (src_cd)
-) COMMENT = '출처원장';
-
 CREATE TABLE cm_stg_word_m (
     stg_word_id VARCHAR(20) NOT NULL COMMENT '표준단어id',
     stg_word_nm VARCHAR(200) NOT NULL COMMENT '표준단어명',
@@ -81,6 +66,20 @@ CREATE TABLE cm_stg_word_m (
     CONSTRAINT uk_cm_stg_word_eng_abbr_nm UNIQUE (stg_word_eng_abbr_nm)
 ) COMMENT = '표준단어원장';
 
+
+-- 블로그
+CREATE TABLE bl_src_m (
+	src_cd VARCHAR(20) NOT NULL COMMENT '출처코드',
+	src_nm VARCHAR(100) NOT NULL COMMENT '출처명',
+	src_tp_cd VARCHAR(20) NOT NULL COMMENT '출처유형코드',
+	src_url VARCHAR(500) NULL COMMENT '출처URL',
+	src_logo_url VARCHAR(500) NULL COMMENT '출처로고URL',
+	use_yn CHAR(1) NOT NULL DEFAULT 'Y' COMMENT '사용여부',
+	reg_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '등록일시',
+	mod_dttm DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '수정일시',
+
+	CONSTRAINT pk_bl_src_m PRIMARY KEY (src_cd)
+) COMMENT = '출처원장';
 
 CREATE TABLE bl_pstg_m (
 	pstg_id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '게시글ID',
