@@ -85,6 +85,7 @@ CREATE TABLE bl_pstg_m (
 	pstg_id BIGINT AUTO_INCREMENT PRIMARY KEY COMMENT '게시글ID',
 	src_cd VARCHAR(20) NOT NULL COMMENT '회사코드',
 	pstg_ttl VARCHAR(300) NOT NULL COMMENT '게시글제목',
+	pstg_expln VARCHAR(500) NOT NULL COMMENT '게시글설명',
 	pstg_thmb_url VARCHAR(500) NULL COMMENT '게시글썸네일URL',
 	pstg_dttm DATETIME NOT NULL COMMENT '게시일시',
 	use_yn CHAR(1) NOT NULL DEFAULT 'Y' COMMENT '사용여부',
